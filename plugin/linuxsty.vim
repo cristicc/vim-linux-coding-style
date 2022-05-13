@@ -55,7 +55,9 @@ command! LinuxCodingStyle call s:LinuxCodingStyle()
 function! s:LinuxCodingStyle()
     call s:LinuxFormatting()
     call s:LinuxKeywords()
-    call s:LinuxHighlighting()
+    if (!exists("g:linuxsty_highlight_enabled") || g:linuxsty_highlight_enabled == 1)
+        call s:LinuxHighlighting()
+    endif
 endfunction
 
 function s:LinuxFormatting()
