@@ -64,8 +64,13 @@ function s:LinuxFormatting()
     setlocal tabstop=8
     setlocal shiftwidth=8
     setlocal softtabstop=8
-    setlocal textwidth=80
     setlocal noexpandtab
+
+    if exists("g:linuxsty_textwidth")
+        let &l:textwidth=g:linuxsty_textwidth
+    else
+        setlocal textwidth=100
+    endif
 
     setlocal cindent
     setlocal cinoptions=:0,l1,t0,g0,(0
